@@ -1,0 +1,209 @@
+
+
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="center-card">
+    <h1>🏦 Bank System</h1>
+
+    <div class="login-box">
+      <h3>Admin Login</h3>
+      <input id="adminUser" placeholder="Username">
+      <input id="adminPass" type="password" placeholder="Password">
+      <button onclick="adminLogin()">Login</button>
+    </div>
+
+    <div class="login-box">
+      <h3>User Login</h3>
+      <input id="userEmail" placeholder="Email">
+      <input id="userPass" type="password" placeholder="Password">
+      <button onclick="userLogin()">Login</button>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+<!-- admin.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard">
+  <div class="sidebar">
+    <h2>Admin</h2>
+    <button onclick="loadUsers()">Users</button>
+  </div>
+
+  <div class="main">
+    <h1>Dashboard</h1>
+
+    <div class="card">
+      <h3>Add Account</h3>
+      <input id="name" placeholder="Name">
+      <input id="email" placeholder="Email">
+      <input id="password" placeholder="Password">
+      <button onclick="addAccount()">Add</button>
+    </div>
+
+    <div class="card">
+      <h3>All Users</h3>
+      <ul id="userList"></ul>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+<!-- account.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard">
+  <div class="sidebar">
+    <h2>User</h2>
+  </div>
+
+  <div class="main">
+    <h1 id="welcome"></h1>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Deposit</h3>
+        <input id="depositAmt" placeholder="Amount">
+        <button onclick="deposit()">Deposit</button>
+      </div>
+
+      <div class="card">
+        <h3>Withdraw</h3>
+        <input id="withdrawAmt" placeholder="Amount">
+        <button onclick="withdraw()">Withdraw</button>
+      </div>
+
+      <div class="card">
+        <h3>Transfer</h3>
+        <input id="toId" placeholder="Receiver ID">
+        <input id="transferAmt" placeholder="Amount">
+        <button onclick="transfer()">Send</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Transactions</h3>
+      <button onclick="loadTransactions()">Load</button>
+      <ul id="txList"></ul>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+/* style.css */
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f0f2f5;
+}
+
+.center-card {
+  width: 350px;
+  margin: 80px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.login-box {
+  margin-top: 20px;
+}
+
+.dashboard {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  background: #1e293b;
+  color: white;
+  height: 100vh;
+  padding: 20px;
+}
+
+.sidebar button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: #3b82f6;
+  border: none;
+  color: white;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 8px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+
+// script.js additions (update only UI parts)
+if (window.location.pathname.includes("account.html")) {
+  const user = JSON.parse(localStorage.getItem("user"));
+  welcome.innerText = `Welcome ${user.name} | Balance: ₹${user.balance}`;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My Bank</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="navbar">🏦 My Bank</div>
+
+  <!-- Role Selection -->
+  <div class="center-box" id="roleBox">
+    <h2>Welcome to My Bank</h2>
+    <button onclick="showAdmin()">Admin Login</button>
+    <button class="green" onclick="showUser()">Account Holder</button>
+  </div>
+
+  <!-- Admin Login -->
+  <div class="center-box" id="adminBox" style="display:none;">
+    <h2>Admin Login</h2>
+    <input id="adminUser" placeholder="Username">
+    <input id="adminPass" type="password" placeholder="Password">
+    <button onclick="adminLogin()">Login</button>
+    <button onclick="goBack()">Back</button>
+  </div>
+
+  <!-- User Login -->
+  <div class="center-box" id="userBox" style="display:none;">
+    <h2>User Login</h2>
+    <input id="userEmail" placeholder="Email">
+    <input id="userPass" type="password" placeholder="Password">
+    <button onclick="userLogin()">Login</button>
+    <button onclick="goBack()">Back</button>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    function showAdmin() {
+      roleBox.style.display = "none";
+      adminBox.style.display = "block";
+    }
+
+    function showUser() {
+      roleBox.style.display = "none";
+      userBox.style.display = "block";
+    }
+
+    function goBack() {
+      adminBox.style.display = "none";
+      userBox.style.display = "none";
+      roleBox.style.display = "block";
+    }
+  </script>
+
+</body>
+
+</html>

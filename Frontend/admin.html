@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <button onclick="show('add')">Add Account</button>
+    <button onclick="loadUsers()">View Users</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <div class="main">
+
+    <h2>Admin Dashboard</h2>
+
+    <!-- ADD ACCOUNT -->
+    <div id="add" class="card">
+      <h3>Add Account Holder</h3>
+      <input id="name" placeholder="Name">
+      <input id="email" placeholder="Email">
+      <input id="password" placeholder="Password">
+      <button onclick="addAccount()">Add Account</button>
+    </div>
+
+    <!-- USERS LIST -->
+    <div id="users" class="card" style="display:none;">
+      <h3>All Users</h3>
+      <ul id="userList"></ul>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

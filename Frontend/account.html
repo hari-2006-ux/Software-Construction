@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Account Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <h2>My Account</h2>
+    <button onclick="show('dashboard')">Dashboard</button>
+    <button onclick="show('deposit')">Deposit</button>
+    <button onclick="show('withdraw')">Withdraw</button>
+    <button onclick="show('transfer')">Transfer</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <div class="main">
+
+    <div class="topbar">
+      <h3>Welcome User</h3>
+      <p id="balance">Balance: ₹0</p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="card">
+      <h3>Overview</h3>
+      <p>Use sidebar to perform transactions</p>
+    </div>
+
+    <!-- DEPOSIT -->
+    <div id="deposit" class="card" style="display:none;">
+      <h3>Deposit</h3>
+      <input id="depAmt" placeholder="Amount">
+      <button onclick="deposit()">Deposit</button>
+    </div>
+
+    <!-- WITHDRAW -->
+    <div id="withdraw" class="card" style="display:none;">
+      <h3>Withdraw</h3>
+      <input id="witAmt" placeholder="Amount">
+      <button class="red" onclick="withdraw()">Withdraw</button>
+    </div>
+
+    <!-- TRANSFER -->
+    <div id="transfer" class="card" style="display:none;">
+      <h3>Transfer</h3>
+      <input id="receiver" placeholder="Receiver ID">
+      <input id="amt" placeholder="Amount">
+      <button onclick="transfer()">Transfer</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
